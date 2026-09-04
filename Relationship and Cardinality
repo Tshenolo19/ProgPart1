@@ -1,0 +1,9 @@
+| Relationship            | Cardinality | Explanation                                                                      |
+| ----------------------- | ----------- | -------------------------------------------------------------------------------- |
+| Users → Events          | 1:M         | One Organiser can create many events, while each event belongs to one Organiser. |
+| Events → Categories     | 1:M         | One event can contain multiple age or distance categories.                       |
+| Events → EventImages    | 1:M         | An event can have one or more stored images, such as banners.                    |
+| Users → Enrolments      | 1:M         | One Participant can enrol in many events.                                        |
+| Events → Enrolments     | 1:M         | One event can have many participant enrolments.                                  |
+| Categories → Enrolments | 1:M         | One category can be selected by many participants.                               |
+| Enrolments → Results    | 1:0..1      | An enrolment may have no result before the race, or one result after completion. |
