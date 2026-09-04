@@ -1,0 +1,70 @@
+┌──────────────────────────────┐
+│            USERS             │
+├──────────────────────────────┤
+│ PK UserID                    │
+│    FirstName                 │
+│    LastName                  │
+│    Email                     │
+│    PasswordHash              │
+│    Phone                     │
+│    Role                      │
+│    ProfilePictureUrl         │
+│    CreatedAt                 │
+└──────────────┬───────────────┘
+               │
+               │ 1
+               │
+               │ M
+┌──────────────▼───────────────┐
+│            EVENTS            │
+├──────────────────────────────┤
+│ PK EventID                   │
+│ FK OrganiserID               │
+│    EventName                 │
+│    Description               │
+│    EventDate                 │
+│    Location                  │
+│    Distance                  │
+│    EventType                 │
+│    CreatedAt                 │
+└───────┬──────────────┬───────┘
+        │              │
+       1│              │1
+        │              │
+       M│              │M
+┌───────▼──────────┐   ┌──────▼────────────────┐
+│    CATEGORIES    │   │     EVENT IMAGES      │
+├──────────────────┤   ├───────────────────────┤
+│ PK CategoryID    │   │ PK EventImageID       │
+│ FK EventID       │   │ FK EventID            │
+│ CategoryName     │   │    ImageUrl           │
+│ MinAge           │   │    ImageType          │
+│ MaxAge           │   │    UploadedAt         │
+│ Distance         │   └───────────────────────┘
+└────────┬─────────┘
+         │
+        1│
+         │M
+┌────────▼────────────────────┐
+│         ENROLMENTS          │
+├─────────────────────────────┤
+│ PK EnrolmentID              │
+│ FK ParticipantID            │
+│ FK EventID                  │
+│ FK CategoryID               │
+│    EnrolmentDate            │
+│    Status                   │
+└─────────────┬───────────────┘
+              │
+             1│
+              │
+             0..1
+┌─────────────▼───────────────┐
+│           RESULTS           │
+├─────────────────────────────┤
+│ PK ResultID                 │
+│ FK EnrolmentID              │
+│    FinishTime               │
+│    FinishingPosition        │
+│    RecordedAt               │
+└─────────────────────────────┘
