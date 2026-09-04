@@ -1,0 +1,113 @@
+INSERT INTO Users
+(
+    FirstName,
+    LastName,
+    Email,
+    PasswordHash,
+    Phone,
+    Role
+)
+VALUES
+(
+    'Thabo',
+    'Mokoena',
+    'thabo@raceday.co.za',
+    'HASH_ORGANISER_001',
+    '0821111111',
+    'Organiser'
+),
+(
+    'Lerato',
+    'Dlamini',
+    'lerato@raceday.co.za',
+    'HASH_ORGANISER_002',
+    '0832222222',
+    'Organiser'
+),
+(
+    'Tshenolo',
+    'Mosidi',
+    'tshenolo@example.com',
+    'HASH_PARTICIPANT_001',
+    '0843333333',
+    'Participant'
+),
+(
+    'Sarah',
+    'Jones',
+    'sarah@example.com',
+    'HASH_PARTICIPANT_002',
+    '0854444444',
+    'Participant'
+);
+
+INSERT INTO Categories
+(
+    EventID,
+    CategoryName,
+    MinAge,
+    MaxAge,
+    Distance
+)
+VALUES
+-- Event 1
+(1, 'Under 20', 0, 19, 10.00),
+(1, 'Senior', 20, 39, 42.20),
+(1, 'Veteran', 40, 59, 42.20),
+(1, 'Master', 60, 100, 42.20),
+
+-- Event 2
+(2, 'Junior Cyclist', 16, 19, 40.00),
+(2, 'Senior Cyclist', 20, 39, 109.00),
+(2, 'Veteran Cyclist', 40, 59, 109.00),
+
+-- Event 3
+(3, 'Under 20', 0, 19, 10.00),
+(3, 'Senior', 20, 59, 10.00),
+(3, 'Master', 60, 100, 10.00);
+
+INSERT INTO Enrolments
+(
+    ParticipantID,
+    EventID,
+    CategoryID,
+    Status
+)
+VALUES
+(3, 1, 2, 'Confirmed'),
+(4, 1, 2, 'Confirmed'),
+(3, 2, 6, 'Confirmed'),
+(4, 3, 9, 'Confirmed');
+
+INSERT INTO Results
+(
+    EnrolmentID,
+    FinishTime,
+    FinishingPosition
+)
+VALUES
+(1, '03:48:32', 47),
+(2, '04:02:15', 81);
+
+INSERT INTO EventImages
+(
+    EventID,
+    ImageUrl,
+    ImageType
+)
+VALUES
+(
+    1,
+    'https://racedaystorage.blob.core.windows.net/events/soweto-marathon.jpg',
+    'Banner'
+),
+(
+    2,
+    'https://racedaystorage.blob.core.windows.net/events/cape-town-cycle.jpg',
+    'Banner'
+),
+(
+    3,
+    'https://racedaystorage.blob.core.windows.net/events/jhb-community-walk.jpg',
+    'Banner'
+);
